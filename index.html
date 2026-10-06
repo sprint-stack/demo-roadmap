@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Zo kom je bij een Strategy Sprint stap voor stap van losse inzichten tot één roadmap. Een demonstratie voor facilitators, met de flipovervellen zoals ze er in het echt uitzien.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Strategy Sprint">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:title" content="Demo Roadmap">
+<meta property="og:description" content="Stap voor stap van losse inzichten naar één roadmap. Een demonstratie voor facilitators.">
+<meta property="og:url" content="https://sprint-stack.github.io/demo-roadmap/">
+<meta property="og:image" content="https://sprint-stack.github.io/demo-roadmap/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Demo Roadmap, Strategy Sprint Academy | Agency">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#313d41">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 fill=%27%23313d41%27/%3E%3Cpath d=%27M14 32h32M34 20l12 12-12 12%27 stroke=%27%23f0a868%27 stroke-width=%276%27 fill=%27none%27/%3E%3C/svg%3E">
+<title>Demo Roadmap | Strategy Sprint</title>
+<style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+<style>
+/* Strategy Sprint: leisteen #313d41 en perzik #f0a868, smalle hoofdletters, veel witruimte. Lichte pagina, de flipovervellen zijn het enige "object" met schaduw. Post-its op schaal: ruim 1/7 van de vel-breedte. */
+:root{
+  --slate:#313d41; --slate-ink:#ffffff; --orange:#f0a868; --orange-ink:#2b2018; --orange-deep:#b3601a;
+  --bg:#fbfaf7; --surface:#ffffff; --fg:#252d31; --muted:#69747a; --line:#e9e6df; --line-strong:#cfcbc2;
+  --goal:#f6d44c; --goal-ink:#3d3000;
+  --idea:#8fd18a; --idea-ink:#0f3517;
+  --chal:#ef8f86; --chal-ink:#430d08;
+  --proj:#7fb2ee; --proj-ink:#0a2848;
+  --catA:#b58ad9; --catB:#f0a35c;
+  --paper:#fcfcf9; --ink:#2a2f33; --paper-line:#d6d6cd;
+  --display:"Bebas Neue", "Oswald", "Arial Narrow", Impact, sans-serif;
+  --body:"Poppins", "Segoe UI", system-ui, sans-serif;
+  --hand:"Kalam", "Segoe Print", "Comic Sans MS", cursive;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1c2428; --surface:#263137; --fg:#f0efea; --muted:#a9b3b9; --line:#34414a; --line-strong:#4a5964; --orange-deep:#f0a868; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#1c2428; --surface:#263137; --fg:#f0efea; --muted:#a9b3b9; --line:#34414a; --line-strong:#4a5964; --orange-deep:#f0a868; color-scheme:dark;}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.65;font-weight:400}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.02em;margin:0;line-height:1}
+p{margin:0}
+.goal{background:var(--goal);color:var(--goal-ink)}
+.idea{background:var(--idea);color:var(--idea-ink)}
+.chal{background:var(--chal);color:var(--chal-ink)}
+.proj{background:var(--proj);color:var(--proj-ink)}
+.lbl{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange-deep);font-weight:600;margin-bottom:8px}
+
+/* Topbalk met logo */
+.topbar{background:var(--slate)}
+.topbar .in{max-width:1180px;margin:0 auto;padding-inline:20px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.topbar .t{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#cfd6d9}
+.topbar img{display:block;height:84px;width:auto}
+
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:48px 72px;display:flex;flex-direction:column;gap:40px}
+.hero{display:flex;flex-direction:column;gap:18px;max-width:760px}
+.hero h1{font-size:clamp(64px,11vw,128px);line-height:.88;color:var(--slate)}
+.hero .lead{font-size:20px;font-weight:300;line-height:1.5}
+.hero .sub{font-size:15px;color:var(--muted);max-width:60ch}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero h1{color:var(--fg)}}
+:root[data-theme="dark"] .hero h1{color:var(--fg)}
+
+/* Legenda uitklapbaar */
+details.legend{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+details.legend summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;padding:16px 0}
+details.legend summary::-webkit-details-marker{display:none}
+details.legend summary .tt{font-family:var(--display);font-size:22px;letter-spacing:.04em;text-transform:uppercase}
+details.legend summary .sws{display:flex;gap:14px;font-size:14px;color:var(--muted)}
+details.legend summary .sws span{display:inline-flex;align-items:center;gap:7px}
+details.legend summary .sws i{width:14px;height:14px;border-radius:2px;display:inline-block}
+details.legend summary .tg{margin-left:auto;font-size:13px;color:var(--muted)}
+details.legend summary .tg::after{content:"Uitklappen +"}
+details.legend[open] summary .tg::after{content:"Inklappen −"}
+details.legend summary:focus-visible{outline:3px solid var(--proj);outline-offset:2px}
+details.legend .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px 32px;padding:4px 0 26px}
+.legend .it{display:grid;grid-template-columns:36px minmax(0,1fr);gap:14px;align-items:start}
+.legend .sw{width:36px;height:36px;border-radius:2px;box-shadow:0 2px 4px rgba(0,0,0,.2)}
+.legend b{display:block;font-weight:600;font-size:15px}
+.legend p,.legend ul{font-size:14px;color:var(--muted);line-height:1.55}
+.legend ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.legend ul b{display:inline;font-size:14px;color:var(--fg)}
+
+/* Stappen: rustige tabs in twee groepen */
+nav.steps{display:flex;flex-wrap:wrap;gap:18px 44px}
+.grp{display:flex;flex-direction:column;gap:6px}
+.grp .cap{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:2px 6px}
+.tab{font:inherit;background:none;border:0;border-bottom:2px solid transparent;padding:6px 10px;color:var(--muted);cursor:pointer;display:flex;align-items:baseline;gap:8px;line-height:1.2}
+.tab b{font-family:var(--display);font-weight:400;font-size:24px;letter-spacing:.03em}
+.tab span{font-size:14px}
+.tab:hover{color:var(--fg)}
+.tab[aria-current="step"]{color:var(--fg);border-bottom-color:var(--orange)}
+button:focus-visible{outline:3px solid var(--proj);outline-offset:2px}
+
+.stage{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:56px;align-items:start}
+@media(max-width:980px){.stage{grid-template-columns:minmax(0,1fr);gap:32px}}
+.ins{display:flex;flex-direction:column;gap:26px;min-width:0}
+.ins .meta{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.ins h2{font-size:clamp(40px,5vw,56px);line-height:.95;margin-top:8px}
+.ins .blk{border-top:1px solid var(--line);padding-top:18px}
+.ins .goaltext{font-size:17px}
+.ins .say p{font-style:italic;font-size:18px;font-weight:300;border-left:3px solid var(--orange);padding-left:16px}
+.ins ol,.ins ul{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px}
+.ins ol li::marker{font-family:var(--display);font-size:20px;color:var(--orange-deep)}
+.side{display:flex;flex-direction:column;gap:28px;min-width:0}
+
+/* Flipovervel: alles op schaal via de breedte van het vel */
+.sheetwrap{container-type:inline-size;min-width:0}
+.sheet{--pw:clamp(84px,14cqw,128px);background:var(--paper);color:var(--ink);border:1px solid var(--paper-line);border-radius:2px;box-shadow:0 18px 40px rgba(20,30,35,.14);padding:34px 24px 26px;display:flex;flex-direction:column;gap:20px;font-family:var(--hand);min-width:0;position:relative}
+.sheet::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:#cfd2d4;border-bottom:1px solid #b6babd}
+.sheet .stitle{font-family:var(--display);font-size:32px;letter-spacing:.03em;text-transform:uppercase;line-height:1}
+.sheet .note{position:relative;width:var(--pw);height:var(--pw);flex:none;padding:calc(var(--pw)*.09);display:flex;flex-direction:column;justify-content:flex-start;font-family:var(--hand);font-size:calc(var(--pw)*.145);line-height:1.15;box-shadow:0 3px 6px rgba(0,0,0,.26),inset 0 12px 10px -12px rgba(0,0,0,.2);animation:pop .4s both;animation-delay:calc(var(--i,0) * 70ms);overflow:hidden;overflow-wrap:anywhere;hyphens:auto}
+.sheet .note:nth-child(3n+1){transform:rotate(-1.6deg)}
+.sheet .note:nth-child(3n+2){transform:rotate(1.1deg)}
+.sheet .note:nth-child(3n){transform:rotate(-.5deg)}
+.sheet .note.free{height:auto;min-height:var(--pw)}
+.sheet .note small{display:block;font-size:.85em;opacity:.8;margin-top:4px}
+.sheet .note .rank{position:absolute;top:4px;right:4px;margin:0}
+.sheet .note .cat{position:absolute;right:5px;bottom:5px;margin:0}
+@keyframes pop{from{opacity:0;translate:0 -8px;scale:.96}}
+@media(prefers-reduced-motion:reduce){.sheet .note{animation:none}}
+.notes{display:flex;flex-wrap:wrap;gap:calc(var(--pw)*.12);align-items:flex-start}
+.arrow{display:flex;align-items:center;gap:10px;font-size:16px}
+.arrow i{flex:1;height:3px;background:var(--ink);position:relative}
+.arrow i::after{content:"";position:absolute;right:-2px;top:-6px;border:7px solid transparent;border-left:12px solid var(--ink);border-right:0}
+.mini{font-family:var(--body);font-size:13px;color:#566067}
+.lab{font-size:24px;line-height:1.1}
+.lane{display:flex;flex-direction:column;gap:6px}
+.lane .area{position:relative;height:calc(var(--pw)*1.78)}
+.lane .area .note{position:absolute}
+.lane .area.empty{border-bottom:1px dashed var(--paper-line)}
+.pk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1.5px solid var(--ink)}
+.pk .qd{padding:14px;display:flex;flex-direction:column;gap:12px;min-width:0;min-height:calc(var(--pw)*2.4)}
+.pk .qd:nth-child(odd){border-right:1.5px solid var(--ink)}
+.pk .qd:nth-child(-n+2){border-bottom:1.5px solid var(--ink)}
+.pk .qd h3{font-size:26px}
+.pk .typ{font-family:var(--body);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#566067;font-weight:600}
+.pile{border:2px dashed var(--paper-line);border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.pile p{font-size:15px;color:#566067;font-family:var(--body)}
+.mx{display:grid;grid-template-columns:24px minmax(0,1fr) minmax(0,1fr);gap:0}
+.mx .ax{font-family:var(--body);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#566067;display:flex;align-items:center;justify-content:center;font-weight:600;padding:4px}
+.mx .ax.v{writing-mode:vertical-rl;transform:rotate(180deg)}
+.quad{border:1.5px solid var(--ink);margin:-1px 0 0 -1px;padding:12px;display:flex;flex-direction:column;gap:12px;min-width:0;min-height:calc(var(--pw)*2.4)}
+.quad h3{font-size:22px}
+.quad .items{display:flex;flex-wrap:wrap;gap:calc(var(--pw)*.14)}
+.quad.nogo{background:repeating-linear-gradient(135deg,transparent 0 9px,rgba(0,0,0,.05) 9px 18px)}
+.flag{position:absolute;top:8px;right:0;background:#e8546a;color:#fff;font-family:var(--body);font-weight:700;font-size:12px;line-height:1;padding:3px 8px 3px 7px;border-radius:2px 0 0 2px;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.plotwrap{display:grid;grid-template-columns:22px minmax(0,1fr);gap:6px 8px}
+.plotwrap .yl{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--body);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#566067;font-weight:600;text-align:center}
+.plotwrap .xl{grid-column:2;font-family:var(--body);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#566067;font-weight:600;text-align:center}
+.plot{position:relative;aspect-ratio:1/1;border:1.5px solid var(--ink);background:linear-gradient(var(--ink),var(--ink)) center/1.5px 100% no-repeat,linear-gradient(var(--ink),var(--ink)) center/100% 1.5px no-repeat}
+.plot .ql{position:absolute;font-family:var(--display);font-size:20px;letter-spacing:.04em;text-transform:uppercase;opacity:.7;line-height:1}
+.plot .ql.tl{left:10px;top:8px}.plot .ql.tr{right:10px;top:8px}.plot .ql.bl{left:10px;bottom:8px}.plot .ql.br{right:10px;bottom:8px}
+.plot .note{position:absolute}
+.sort{display:flex;flex-direction:column;gap:16px}
+.sort .two2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.sort .step{font-family:var(--body);font-size:13px;color:#566067;display:flex;align-items:center;gap:8px}
+.sheet .note b{font-weight:700}
+.cat{display:inline-block;width:20px;height:20px;border-radius:10px;font-family:var(--body);font-size:11px;font-weight:700;text-align:center;line-height:20px;color:#1d2226}
+.cat.A{background:var(--catA)}.cat.B{background:var(--catB)}
+.rank{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;border-radius:12px;background:#0a2848;color:#fff;font-family:var(--body);font-weight:700;font-size:12px;padding-inline:4px}
+.key{font-family:var(--body);font-size:13px;color:#566067;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.key span{display:inline-flex;align-items:center;gap:6px}
+.dot{position:absolute;right:6px;bottom:6px;width:16px;height:16px;border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,.35)}
+.d1{background:#e86d9a}.d2{background:#3fb6a8}.d3{background:#8e7bd6}
+.key .dot{position:static;display:inline-block;width:14px;height:14px}
+.layers{display:flex;flex-wrap:wrap;gap:6px;font-family:var(--body)}
+.layers button{font:inherit;font-size:14px;padding:6px 14px;border:0;border-bottom:2px solid transparent;background:none;color:#566067;cursor:pointer}
+.layers button[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--orange)}
+.scroll{overflow-x:auto}
+.road{display:grid;grid-template-columns:70px repeat(6,minmax(calc(var(--pw) + 8px),1fr));gap:10px;min-width:900px;align-items:start}
+.road .hd{font-family:var(--body);font-size:13px;font-weight:600;text-align:center;border-bottom:2px solid var(--orange);padding:4px 6px 6px;line-height:1.3}
+.road .hd .mini{display:block;font-weight:400;font-size:11px}
+.road .rl{font-family:var(--display);font-size:22px;text-transform:uppercase;padding-top:6px;letter-spacing:.03em;line-height:1}
+.road .cell{display:flex;flex-direction:column;gap:12px;min-height:30px;min-width:0;align-items:flex-start}
+.road .band2{grid-column:2 / -1;display:flex;flex-wrap:wrap;gap:12px}
+.road .rowsep{grid-column:1 / -1;border-top:1px dashed var(--paper-line)}
+.how{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:12px;font-size:15px}
+.how .r{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.how .r s{opacity:.6}
+.how .tagc{padding:3px 10px;border-radius:3px;font-weight:600;font-size:14px}
+.vellen{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media(max-width:560px){.vellen{grid-template-columns:minmax(0,1fr)}}
+.vel{background:#fff;border:1px solid var(--paper-line);box-shadow:0 4px 12px rgba(0,0,0,.1);padding:14px;display:flex;flex-direction:column;gap:10px;font-family:var(--hand);min-width:0}
+.vel.p{aspect-ratio:3/4}
+.vel.l{grid-column:1/-1}
+.vel .cap{font-family:var(--body);font-size:12px;color:#566067}
+.vel .lanes{flex:1;display:flex;flex-direction:column;justify-content:space-around;gap:14px}
+.vel .lane{gap:2px}
+.vel .lane .arrow{font-size:14px}
+.vel .vm{flex:1;display:grid;grid-template-columns:18px minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr 1fr auto;gap:4px}
+.vel .vm .q{border:1.5px solid var(--ink);padding:6px;font-family:var(--display);font-size:17px;text-transform:uppercase;line-height:1.05}
+.vel .vm .ax{font-family:var(--body);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#566067;display:flex;align-items:center;justify-content:center}
+.vel .vm .ax.v{writing-mode:vertical-rl;transform:rotate(180deg)}
+.vel .rd{display:grid;grid-template-columns:64px repeat(6,minmax(54px,1fr));gap:6px;min-width:520px}
+.vel .rd .h{background:#e8e9ee;border-radius:2px;font-family:var(--body);font-size:11px;font-weight:600;text-align:center;padding:3px}
+.vel .rd .b{border:2px dashed var(--paper-line);min-height:58px}
+.vel .rd .rl{font-family:var(--display);font-size:16px;text-transform:uppercase;padding-top:4px}
+.checks{display:flex;flex-direction:column;gap:14px;font-size:22px}
+.checks div{display:flex;gap:14px;align-items:center}
+.checks i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:2px solid var(--ink);border-radius:4px;font-size:20px}
+.big{font-family:var(--display);font-size:64px;line-height:.95;text-transform:uppercase}
+
+/* Beslisboom */
+.tree{display:flex;flex-direction:column;gap:26px;font-family:var(--body)}
+.tree h3{font-size:40px}
+.tree .sec{display:flex;flex-direction:column;gap:10px}
+.cues{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.cue{border-left:3px solid var(--orange);padding:2px 0 2px 14px;font-size:14px;line-height:1.5;color:var(--muted)}
+.cue b{display:block;font-size:16px;color:var(--fg);font-weight:600}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px}
+.chips button{font:inherit;font-size:14px;text-align:left;padding:10px 14px;border-radius:10px;border:1px solid var(--line-strong);background:transparent;color:var(--fg);cursor:pointer;line-height:1.45;font-style:italic}
+.chips button[aria-pressed="true"]{border-color:var(--orange);background:color-mix(in srgb,var(--orange) 16%,transparent)}
+.res{border-top:2px solid var(--orange);padding-top:18px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 28px;align-items:center}
+@media(max-width:620px){.res{grid-template-columns:minmax(0,1fr)}}
+.res .sig{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--orange-deep)}
+.res .why{font-size:15px;color:var(--muted);margin-top:6px}
+.rposts{display:flex;gap:14px}
+.rp{width:112px;height:112px;padding:10px;font-family:var(--hand);font-size:15px;line-height:1.15;box-shadow:0 3px 6px rgba(0,0,0,.26);transform:rotate(-1.5deg);overflow:hidden;overflow-wrap:anywhere;display:flex;flex-direction:column;gap:4px}
+.rp small{font-family:var(--body);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;opacity:.8}
+.ftree{display:flex;flex-direction:column;gap:8px}
+.t-down{font-family:var(--display);font-size:22px;color:var(--muted);padding-left:26px;line-height:1}
+.t-row{display:grid;grid-template-columns:minmax(0,1fr) 54px minmax(0,1fr);align-items:center}
+@media(max-width:620px){.t-row{grid-template-columns:minmax(0,1fr)}}
+.t-yes{text-align:center;font-family:var(--display);font-size:20px;color:var(--muted);line-height:1;padding:4px 0}
+.t-q{border:1.5px solid var(--line-strong);border-radius:10px;padding:12px 14px;font-weight:600;font-size:16px;line-height:1.35}
+.t-q small{display:block;font-weight:400;color:var(--muted);font-size:14px;margin-top:2px}
+.t-sub{display:flex;flex-direction:column;gap:8px;min-width:0}
+.t-sub .br{display:grid;grid-template-columns:78px minmax(0,1fr);gap:8px;align-items:center}
+.t-sub .br .t-yes{font-size:17px;text-align:left}
+.o{border-radius:8px;padding:10px 14px;font-weight:600;font-size:16px;line-height:1.3}
+.o small{display:block;font-weight:400;font-size:13px;margin-top:2px}
+.node{transition:opacity .2s}
+.tree.hl .node:not(.on){opacity:.32}
+.node.on:not(.t-down){box-shadow:0 0 0 3px var(--orange)}
+.node.on.t-down{color:var(--orange-deep)}
+.twijfel{border-top:1px solid var(--line);padding-top:18px}
+.twijfel ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:24px}
+.nav button{font-family:var(--display);font-size:26px;letter-spacing:.04em;text-transform:uppercase;padding:4px 2px;border:0;border-bottom:2px solid var(--orange);background:none;color:var(--fg);cursor:pointer}
+.nav button[disabled]{opacity:.25;cursor:default;border-bottom-color:transparent}
+footer{font-size:12px;letter-spacing:.2em;text-transform:lowercase;color:var(--muted);text-align:center}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kalam:wght@400;700&family=Poppins:wght@300;400;600&display=swap">
+
+<div class="topbar"><div class="in">
+  <span class="t">Voor facilitators</span>
+  <img src="logo.jpg" alt="Strategy Sprint, Academy | Agency" width="127" height="84">
+</div></div>
+
+<div class="wrap">
+  <header class="hero">
+    <h1>Demo Roadmap</h1>
+    <p class="lead">Zo kom je bij een Strategy Sprint™ stap voor stap van losse inzichten tot één roadmap.</p>
+    <p class="sub">Een demonstratie voor facilitators. Links lees je wat je zegt en doet, rechts zie je hoe het vel op de flipover eruitziet. De data is fictief: de sprinter is Studio Linde, een ontwerpstudio met drie mensen.</p>
+  </header>
+
+  <details class="legend">
+    <summary><span class="tt">Legenda parking post-its</span>
+      <span class="sws"><span><i class="proj"></i>Projecten</span><span><i class="idea"></i>Ideeën</span><span><i class="goal"></i>Doelen</span><span><i class="chal"></i>Uitdagingen</span></span>
+      <span class="tg"></span></summary>
+    <div class="grid">
+      <div class="it"><div class="sw proj"></div><div><b>Projecten</b><p>Concrete acties of trajecten die lopen of opgestart moeten worden.</p></div></div>
+      <div class="it"><div class="sw idea"></div><div><b>Ideeën</b><p>Nieuwe mogelijkheden, creatieve ingevingen of suggesties om verder te verkennen.</p></div></div>
+      <div class="it"><div class="sw goal"></div><div><b>Doelen</b><p>Twee typen:</p><ul><li><b>Mijlpalen:</b> concreet, meetbaar en op een specifiek moment in de tijdlijn te plotten.</li><li><b>Doorlopende doelen:</b> grondregels, voorwaarden of intenties die continu richting geven.</li></ul></div></div>
+      <div class="it"><div class="sw chal"></div><div><b>Uitdagingen</b><p>Knelpunten of obstakels, geformuleerd in How Might We-stijl: positief en oplossingsgericht.</p></div></div>
+    </div>
+  </details>
+
+  <nav class="steps" id="steps" aria-label="Stappen"></nav>
+  <div class="stage" id="stage" aria-live="polite"></div>
+  <div class="nav">
+    <button id="prev">← Vorige</button>
+    <button id="next">Volgende →</button>
+  </div>
+  <footer>strategy → sprint™ academy | agency · fictieve voorbeelddata</footer>
+</div>
+
+<script>
+// ---------- Fictieve data: Studio Linde ----------
+const bhag = 'Bekendste duurzame ontwerpbureau van de Benelux';
+const cols = ['Nov 2026','Q1 2027','Q2 2027','Q3+4 2027','2028','2031'];
+const colSub = ['Volgende maand','Volgend kwartaal','Nog een kwartaal','De twee kwartalen daarna','Volgend jaar','Over vijf jaar'];
+const milestones = [
+  {t:'3 cases live op de website', when:2},
+  {t:'5 retainerklanten getekend', when:3},
+  {t:'€250k omzet', when:4}
+];
+const ongoing = [
+  {t:'Alleen duurzame opdrachtgevers', w:9},
+  {t:'Maximaal vier werkdagen per week', w:7},
+  {t:'Elk project eindigt met een klantcase', w:5}
+];
+// Ideeën zijn nog vaag: er moet onderzoek of een beslissing aan voorafgaan
+const ideas = [
+  {t:'Iets met AI doen', w:8},
+  {t:'Het team uitbreiden', w:9},
+  {t:'Een community voor ontwerpers', w:5},
+  {t:'Internationaal gaan', w:4},
+  {t:'Meer kennis delen', w:6}
+];
+// Op de post-it staat HKW bovenaan, "Hoe kunnen we" wordt niet uitgeschreven
+const challenges = [
+  {t:'HKW meer klanten laten aankloppen?', w:9},
+  {t:'HKW offertes binnen een dag versturen?', w:8},
+  {t:'HKW buiten Utrecht gevonden worden?', w:6}
+];
+const rewrites = [
+  {t:'Offertes kosten ons te veel tijd', n:'HKW offertes binnen een dag versturen?'},
+  {t:'Buiten Utrecht kent niemand ons', n:'HKW buiten Utrecht gevonden worden?'}
+];
+const impactBasis = 'de BHAG';
+const parkedProjects = ['Pitch finetunen','Retainer-pakket met 3 niveaus','Drie cases schrijven en publiceren'];
+const projects = [
+  {id:1, t:'Offertetemplate met vaste blokken', src:'conv', imp:4.25, ex:0.4, rank:1, when:0},
+  {id:2, t:'Omzet per klant uitzoeken', src:'conv', imp:3.05, ex:0.55, rank:5, when:2},
+  {id:3, t:'20 klanten buiten Utrecht bellen', src:'conv', imp:3.7, ex:4.1, rank:7, when:3},
+  {id:4, t:'Retainer-pakket met 3 niveaus', src:'park', imp:4.6, ex:3.2, rank:2, when:1},
+  {id:5, t:'Drie cases schrijven en publiceren', src:'park', imp:3.95, ex:1.5, rank:4, when:1},
+  {id:6, t:'Pitch finetunen', src:'park', imp:1.8, ex:1.2, rank:10, when:4},
+  {id:7, t:'Uitzoeken waar AI ons tijd bespaart', src:'conv', imp:2.95, ex:1.75, rank:3, when:1},
+  {id:8, t:'Doorrekenen of een vierde teamlid past', src:'conv', imp:3.3, ex:3.1, rank:6, when:2},
+  {id:9, t:'5 ontwerpers over een community interviewen', src:'conv', imp:2.8, ex:4.2, rank:9, when:3},
+  {id:10, t:'Eerste nieuwsbrief schrijven', src:'conv', imp:1.0, ex:1.9, rank:8, when:2},
+  {id:11, t:'Onderzoeken welke buitenlandse markt past', src:'conv', imp:1.3, ex:4.0, rank:null}
+];
+const owners = {1:1,2:2,3:2,4:2,5:1,6:1,7:3,8:3,9:3,10:1};
+const quadOf = p => p.impact>=3 ? (p.effort<=2?'quick':'big') : (p.effort<=2?'thankless':'nogo');
+
+// ---------- Helpers ----------
+const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const T = s => esc(s).replace(/^HKW /,'<b>HKW</b><br>');
+const note = (cls, html, i=0, style='') => `<div class="note ${cls}" style="--i:${i};${style}">${html}</div>`;
+const projNote = (p, i, showRank, dim, dot) => note('proj', `${showRank&&p.rank?`<span class="flag">${p.rank}</span>`:''}${esc(p.t)}${dot&&owners[p.id]?`<span class="dot d${owners[p.id]}"></span>`:''}`, i, dim?'opacity:.5':'');
+
+const lane = (label, items, cls, filled, i0) => {
+  const s = [...items].sort((a,b)=>a.w-b.w);
+  const inner = filled ? s.map((it,i)=>note(cls, T(it.t), i0+i,
+    `left:calc((100% - var(--pw)) * ${(it.w-1)/9});top:calc(var(--pw) * ${.08+(i%2)*.64})`)).join('') : '';
+  return `<div class="lane"><span class="lab">${label}</span><div class="area ${filled?'':'empty'}">${inner}</div>
+    <div class="arrow"><span>−</span><i></i><span>+</span></div><div class="mini" style="text-align:center">belangrijkheid</div></div>`;
+};
+const vel1 = show => `<div class="stitle">Vel 1 · belangrijkheid</div>
+  ${lane('ideeën', ideas, 'idea', show>=1, 0)}${lane('doelen', ongoing, 'goal', show>=2, 6)}${lane('uitdagingen', challenges, 'chal', show>=3, 9)}`;
+
+const matrix = showFlags => {
+  const ordered = [...projects].sort((a,b)=>(a.src==='park'?0:1)-(b.src==='park'?0:1) || a.id-b.id);
+  return `<div class="plotwrap"><div class="yl">impact: bijdrage aan ${impactBasis}</div><div class="plot">
+    <span class="ql tl">Quick wins</span><span class="ql tr">Big projects</span><span class="ql bl">Thankless tasks</span><span class="ql br">No-go area</span>
+    ${ordered.map((p,i)=>projNote(p, i, showFlags, showFlags&&!p.rank).replace('style="','style="left:calc((100% - var(--pw)) * '+(p.ex/5)+');top:calc((100% - var(--pw)) * '+(1-p.imp/5)+');')).join('')}
+    </div><div class="xl">effort laag → hoog</div></div>`;
+};
+let layer = 3;
+let multi = false;
+const roadmap = () => {
+  const head = `<div></div>${cols.map((c,i)=>`<div class="hd">${c}${colSub[i]?`<span class="mini">${colSub[i]}</span>`:''}</div>`).join('')}`;
+  const goalRow = `<div class="rl">Doelen</div>${cols.map((c,ci)=>`<div class="cell">${
+    ci===5 ? (layer>=1 ? note('goal free',`<b>BHAG</b><br>${esc(bhag)}`,0) : '') :
+    (layer>=2 ? milestones.filter(m=>m.when===ci).map((m,i)=>note('goal',esc(m.t),i)).join('') : '')}</div>`).join('')}`;
+  const projRow = `<div class="rl">Projecten</div>${cols.map((c,ci)=>`<div class="cell">${
+    ci===5 || layer<3 ? '' :
+    projects.filter(p=>p.rank && p.when===ci).sort((a,b)=>a.rank-b.rank)  .map((p,i)=>projNote(p,i,true,false,multi)).join('')}</div>`).join('')}`;
+  const band = '';
+  return `<div class="stitle">Vel 3 · roadmap</div><div class="scroll"><div class="road">${head}${goalRow}${projRow}${band}</div></div>
+    <div class="key"><span><span class="rank">1</span>volgorde uit de top 10</span>${multi?'<span><i class="dot d1"></i>sprinter 1</span><span><i class="dot d2"></i>sprinter 2</span><span><i class="dot d3"></i>sprinter 3</span>':''}</div>`;
+};
+const blankSheets = () => `<div class="vellen">
+  <div class="vel p"><div class="lab">Vel 1 · staand</div><div class="lanes">
+    ${['ideeën','doelen','uitdagingen'].map(t=>`<div class="lane"><span class="lab">${t}</span><div class="arrow"><span>−</span><i></i><span>+</span></div><span class="mini" style="text-align:center">belangrijkheid</span></div>`).join('')}</div>
+    <div class="cap">Ideeën, doelen en uitdagingen plot je op belangrijkheid.</div></div>
+  <div class="vel p"><div class="lab">Vel 2 · staand</div><div class="vm">
+    <div class="ax v">impact hoog</div><div class="q">Quick wins</div><div class="q">Big projects</div>
+    <div class="ax v">impact laag</div><div class="q">Thankless tasks</div><div class="q">No-go area</div>
+    <div></div><div class="ax">effort laag</div><div class="ax">effort hoog</div></div>
+    <div class="cap">Impact/effort-matrix voor de projecten.</div></div>
+  <div class="vel l"><div class="lab">Vel 3 · liggend · roadmap</div><div class="scroll"><div class="rd">
+    <div></div>${['maand','kwartaal','kwartaal','2 kwartalen','jaar','5 jaar'].map(c=>`<div class="h">${c}</div>`).join('')}
+    <div class="rl">Wanneer</div><div></div><div></div><div></div><div></div><div></div><div></div>
+    <div class="rl">Doelen</div>${'<div class="b"></div>'.repeat(6)}
+    <div class="rl">Projecten</div>${'<div class="b"></div>'.repeat(6)}</div></div>
+    <div class="cap">Bovenaan wanneer: van links naar rechts volgende maand tot over vijf jaar. Links doelen en projecten.</div></div>
+</div>`;
+
+// ---------- Beslisboom ----------
+const cues = [
+  {t:'Extra emotie', d:'De sprinter wordt enthousiast, zucht, raakt geraakt of komt ergens op terug.'},
+  {t:'Niet vergeten', d:'“Dat moet ik nog…” of “dat mag ik niet vergeten”.'},
+  {t:'Iets anders belangrijks', d:'Het komt ook terug in de prep form of in een andere oefening.'}
+];
+const OUT = {
+  proj:{cls:'proj', n:'Project', how:'Schrijf: werkwoord + resultaat'},
+  mijl:{cls:'goal', n:'Mijlpaal', how:'Schrijf: resultaat + getal. De deadline volgt live op de roadmap.'},
+  door:{cls:'goal', n:'Doorlopend doel', how:'Schrijf: een regel of voorwaarde, zonder einddatum.'},
+  chal:{cls:'chal', n:'Uitdaging', how:'Schrijf: HKW en dan de vraag, kort'},
+  idea:{cls:'idea', n:'Idee', how:'Schrijf: een korte, positieve mogelijkheid. Vaag mag.'}
+};
+const EXS = [
+  {say:'Ik word zo moe van die offertes. Elke keer kost het me een middag.', cue:'Extra emotie', path:['q1','c1','q2','c2','q3','o_chal'],
+   out:[['chal','HKW offertes binnen een dag versturen?']],
+   why:'Geen actie en geen gewenst resultaat. Wel een knelpunt, met een negatieve toon. Dus een uitdaging, opgeschreven als “Hoe kunnen we…?”.'},
+  {say:'Over twee jaar wil ik €250k omzet draaien.', cue:'Iets belangrijks', path:['q1','c1','q2','q2a','o_mijl'],
+   out:[['mijl','€250k omzet']],
+   why:'Een gewenst resultaat waarvan je ooit kunt zeggen: dit is gehaald. Dus een mijlpaal. De deadline bepaal je later, live op de roadmap.'},
+  {say:'Ik werk gewoon nooit voor opdrachtgevers die niet duurzaam zijn.', cue:'Extra emotie', path:['q1','c1','q2','q2a','o_door'],
+   out:[['door','Alleen duurzame opdrachtgevers']],
+   why:'Een spelregel zonder einddatum. Je kunt hem niet halen, hij geldt altijd. Dus een doorlopend doel.'},
+  {say:'Maandag begin ik aan de eerste cases. Dat mag ik niet vergeten.', cue:'Niet vergeten', path:['q1','o_proj'],
+   out:[['proj','Drie cases schrijven en publiceren']],
+   why:'Iemand kan er morgen mee beginnen. Dus een project, met een werkwoord en een resultaat.'},
+  {say:'Ik zou zo graag iets met AI willen doen, maar ik weet nog niet wat.', cue:'Extra emotie', path:['q1','c1','q2','c2','q3','o_idea'],
+   out:[['idea','Iets met AI doen']],
+   why:'Er is nog geen eerste stap. Er moet eerst onderzoek of een beslissing aan voorafgaan. De toon is positief. Dus een idee, en vaag mag.'},
+  {say:'Op termijn wil ik eigenlijk iemand erbij nemen.', cue:'Iets belangrijks', path:['q1','c1','q2','c2','q3','o_idea'],
+   out:[['idea','Het team uitbreiden']],
+   why:'Een kans waar nog beslissingen aan voorafgaan: wie, wanneer, kunnen we dat betalen? Positieve toon, nog niet concreet. Dus een idee.'},
+  {say:'Ik wil vijf retainerklanten, maar die offertes kosten zoveel tijd.', cue:'Extra emotie', path:['q1','c1','q2','q2a','o_mijl','c2','q3','o_chal'],
+   out:[['mijl','5 retainerklanten'],['chal','HKW offertes binnen een dag versturen?']],
+   why:'Twee dingen in één zin. Maak twee post-its, ieder met een eigen kleur.'}
+];
+let exIdx = 0;
+const decisionTree = () => {
+  const on = k => EXS[exIdx].path.includes(k) ? 'on' : '';
+  const o = (key,k) => `<div class="node o ${OUT[k].cls} ${on(key)}"><b>${OUT[k].n}</b><small>${OUT[k].how}</small></div>`;
+  const e = EXS[exIdx];
+  return `<div class="tree hl" id="tree">
+  <div><span class="lbl">Beslisboom</span><h3>Wat wordt het?</h3></div>
+  <div class="sec"><span class="lbl">Parkeer meteen op een post-it zodra je hoort</span>
+    <div class="cues">${cues.map(c=>`<div class="cue"><b>${c.t}</b>${c.d}</div>`).join('')}</div></div>
+  <div class="sec"><span class="lbl">Oefen: wat zegt de sprinter?</span>
+    <div class="chips">${EXS.map((x,i)=>`<button data-ex="${i}" aria-pressed="${i===exIdx}">“${esc(x.say)}”</button>`).join('')}</div>
+    <div class="res"><div><span class="sig">Signaal: ${e.cue}</span><p class="why">${e.why}</p></div>
+      <div class="rposts">${e.out.map(([k,t])=>`<div class="rp ${OUT[k].cls}"><small>${OUT[k].n}</small>${T(t)}</div>`).join('')}</div></div></div>
+  <div class="ftree">
+    <div class="t-row"><div class="node t-q ${on('q1')}">Kan iemand er morgen mee beginnen?<small>Is het een concrete actie of een traject dat loopt of opgestart moet worden?</small></div><div class="t-yes">ja →</div>${o('o_proj','proj')}</div>
+    <div class="node t-down ${on('c1')}">nee ↓</div>
+    <div class="t-row"><div class="node t-q ${on('q2')}">Is het een gewenst resultaat of een spelregel, geen actie?<small>Dan is het een doel.</small></div><div class="t-yes">ja →</div>
+      <div class="t-sub"><div class="node t-q ${on('q2a')}">Kun je ooit zeggen: “dit is gehaald”?</div>
+        <div class="br"><span class="t-yes">ja</span>${o('o_mijl','mijl')}</div>
+        <div class="br"><span class="t-yes">nee, geldt altijd</span>${o('o_door','door')}</div></div></div>
+    <div class="node t-down ${on('c2')}">nee, nog niet concreet ↓</div>
+    <div class="t-row"><div class="node t-q ${on('q3')}">Hoe klinkt het?<small>Kijk naar de toon.</small></div><div class="t-yes">→</div>
+      <div class="t-sub"><div class="br"><span class="t-yes">negatief</span>${o('o_chal','chal')}</div>
+        <div class="br"><span class="t-yes">positief</span>${o('o_idea','idea')}</div></div></div>
+  </div>
+  <div class="twijfel"><span class="lbl">Twijfel je?</span><ul>
+    <li><b>Twee dingen in één zin?</b> Maak twee post-its.</li>
+    <li><b>Project of idee?</b> Is er een eerste stap die iemand morgen kan zetten? Dan is het een project. Anders een idee.</li>
+    <li><b>Doel of idee?</b> Een doel is een resultaat dat je wilt bereiken. Een idee is een mogelijke weg ernaartoe.</li>
+    <li><b>Mijlpaal of doorlopend doel?</b> Kun je ooit zeggen dat het gehaald is? Dan is het een mijlpaal.</li>
+    <li><b>Uitdaging of idee?</b> Klinkt het als een knelpunt of zorg? Dan is het een uitdaging. Klinkt het als een kans? Dan is het een idee.</li></ul></div>
+</div>`;
+};
+
+// ---------- Stappen ----------
+const steps = [
+ {nav:'0', short:'Parking', group:0, id:'0 · voor en tijdens de sprint', title:'Parkeer wat je hoort',
+  doel:'De inzichten voor je roadmap verzamel je niet aan het eind van de dag. Je begint bij de prep form en parkeert de hele sprint door.',
+  sayLabel:'Vraag jezelf af', say:'Hoor ik extra emotie, iets wat niet vergeten mag worden of iets anders belangrijks? Dan parkeer ik het.',
+  doe:['Neem vóór de sprint de hele prep form door en parkeer alvast inzichten.','Parkeer tijdens de sprint op een post-it zodra je extra emotie hoort, iets wat niet vergeten mag worden of iets anders belangrijks.','Loop de beslisboom: kijk eerst of het een project of een doel is.','Lukt dat niet omdat het nog niet concreet genoeg is? Kijk dan naar de toon.','Negatief of een knelpunt: een uitdaging (rood). Schrijf hem positief op, als vraag met HKW (Hoe kunnen we…?) bovenaan.','Positief of een kans: een idee (groen).'],
+  watch:['Tijdens de sprint parkeer je alleen. Prioriteren begint pas bij 7.1.','Een uitdaging schrijf je altijd positief op, als vraag. “Hoe kunnen we” schrijf je niet uit, HKW bovenaan volstaat.'],
+  pre(){ return decisionTree(); },
+  sheet(){ return `<div class="stitle">Parking post-its</div><div class="pk">
+    <div class="qd"><h3>Uitdagingen</h3><div class="notes">${challenges.map((g,i)=>note('chal',T(g.t),i)).join('')}</div></div>
+    <div class="qd"><h3>Projecten</h3><div class="notes">${parkedProjects.map((g,i)=>note('proj',esc(g),i+3)).join('')}</div></div>
+    <div class="qd"><h3>Doelen</h3><div class="notes">${[ongoing[0],milestones[0],ongoing[1],milestones[1],milestones[2],ongoing[2]].map((g,i)=>note('goal',esc(g.t),i+5)).join('')}</div></div>
+    <div class="qd"><h3>Ideeën</h3><div class="notes">${ideas.map((g,i)=>note('idea',esc(g.t),i+4)).join('')}</div></div></div>`; }},
+ {nav:'5–6', short:'Voorbereiden', group:0, id:'5 of 6 · terwijl de sprinter bezig is', title:'Maak alvast de drie flipovervellen',
+  doel:'Terwijl de sprinter bezig is met oefening 5 (extern) of 6 (reis), maak jij de vellen voor 7 klaar. Zo kun je straks meteen starten.',
+  sayLabel:'Vraag jezelf af', say:'Staan de drie vellen klaar zodra we bij de roadmap zijn?',
+  doe:['Zodra de sprinter zelfstandig bezig is, ga jij de vellen maken.','Vel 1, staand: drie horizontale pijlen onder elkaar voor ideeën, doelen en uitdagingen. Onder elke pijl “belangrijkheid” met een − links en een + rechts.','Vel 2, staand: de impact/effort-matrix voor de projecten. Impact verticaal, effort horizontaal van laag naar hoog, met vier vlakken.','Vel 3, liggend: de roadmap. Bovenaan “wanneer” met de kwartalen, helemaal rechts over vijf jaar, links de rijen “doelen” en “projecten”.','Leg ze klaar zodat je ze direct kunt ophangen.'],
+  watch:['Zo zien de vellen er blanco uit.','Blijf ondertussen alert op wat de sprinter zegt en parkeer wat nodig is.'],
+  sheet(){ return `<div class="stitle">Drie vellen, nog blanco</div>${blankSheets()}`; }},
+ {nav:'7', short:'Aftrap', group:0, id:'7 · de roadmap begint', title:'Zet de energie omhoog',
+  doel:'Nu gaan we echt strategiseren. Sta daar bewust even bij stil en maak er een moment van.',
+  say:'Wow, de roadmap gaat beginnen. Dit is het punt waarop we gaan strategiseren.',
+  doe:['Sta even stil bij de omslag: van inzichten verzamelen naar strategiseren.','Zet de energie hoog. Pep de sprinter op.','Zet een muziekje aan. In de prep form heb je misschien gevraagd naar de favoriete muziek om te knallen.','Ruim alles op wat je nu niet meer nodig hebt.','Zorg dat er alle ruimte is voor de volgende fase en hang vel 1 op.'],
+  watch:['Vraag in de prep form naar favoriete muziek, dan kun je dit moment voorbereiden.','Dit is een bewuste omslag. Neem er even de tijd voor.'],
+  sheet(){ return `<div class="big">Roadmap<br>gaat starten!</div><div class="checks">
+    <div><i>♪</i>Muziekje aan</div><div><i>↑</i>Energie omhoog</div><div><i>✓</i>Alles opgeruimd</div><div><i>✓</i>Ruimte voor de volgende fase</div><div><i>✓</i>Vel 1 hangt klaar</div></div>`; }},
+ {nav:'7.1', short:'Ideeën', group:1, id:'7.1 · 5 min', title:'Zet de ideeën op belangrijkheid',
+  doel:'Zien welke ideeën het meest bijdragen aan de visie.',
+  say:'Hoe belangrijk is dit idee voor het bereiken van je visie? Links is het minst belangrijk, rechts het meest.',
+  doe:['Stem eerst af wat belangrijkheid betekent. Meestal is dat de BHAG, soms de why of een doel op kortere termijn.','Pak vel 1. Begin bij de bovenste pijl, “ideeën”.','Geef de groene post-its aan de sprinter.','De sprinter plakt ze één voor één op de pijl en vergelijkt steeds met wat er al hangt.','Maak een foto.'],
+  watch:['Ideeën mogen nog vaag zijn, zoals “iets met AI doen” of “het team uitbreiden”. Er moet vaak eerst onderzoek of een beslissing aan voorafgaan voordat ze concreet worden.','Laat niet alles op één hoop plakken. Vraag: staat dit echt naast dat idee?'],
+  sheet(){ return vel1(1); }},
+ {nav:'7.2', short:'Doelen', group:1, id:'7.2 · 5 min', title:'Mijlpalen en doorlopende doelen splitsen',
+  doel:'Onderscheid maken tussen doelen die een plek op de tijdlijn krijgen en doelen die altijd gelden.',
+  say:'Een mijlpaal is concreet en meetbaar en heeft een moment op de tijdlijn. Een doorlopend doel is een grondregel of voorwaarde die continu richting geeft.',
+  doe:['Ga op vel 1 naar de tweede pijl, “doelen”.','Laat de sprinter zelf de gele post-its van de parking sorteren in twee stapels: mijlpalen en doorlopende doelen.','Plot alleen de doorlopende doelen op belangrijkheid.','Leg de mijlpalen apart. Met die doe je nu nog niets.','Maak een foto van 7.1 en 7.2.'],
+  watch:['Mijlpalen plot je niet op belangrijkheid en je vraagt nu nog niet naar een deadline. Die bepaal je live in 7.6, als je ze op de roadmap plakt.'],
+  sheet(){ return vel1(2); },
+  extra(){ const mix=[ongoing[0],milestones[0],ongoing[1],milestones[1],milestones[2],ongoing[2]];
+    return `<div class="sheetwrap"><div class="sheet sort"><div class="stitle" style="font-size:26px">Gele post-its sorteren</div>
+    <div class="step">1 · De sprinter pakt de gele post-its van de parking, door elkaar</div>
+    <div class="notes">${mix.map((g,i)=>note('goal',esc(g.t),i)).join('')}</div>
+    <div class="step">2 · De sprinter legt ze in twee stapels</div>
+    <div class="two2"><div class="pile"><div class="stitle" style="font-size:22px">Mijlpalen</div><div class="notes">${milestones.map((m,i)=>note('goal',esc(m.t),i+6)).join('')}</div><p>Apart gelegd. Met deze doe je nu nog niets.</p></div>
+    <div class="pile"><div class="stitle" style="font-size:22px">Doorlopend</div><div class="notes">${ongoing.map((m,i)=>note('goal',esc(m.t),i+9)).join('')}</div><p>Naar vel 1, op belangrijkheid.</p></div></div></div></div>`; }},
+ {nav:'7.3', short:'Uitdagingen', group:1, id:'7.3 · 5 min', title:'Uitdagingen schrijf je positief, als HKW-vraag',
+  doel:'Obstakels zo positief mogelijk formuleren, zodat je uitgaat van wat kan en meteen aan oplossingen denkt.',
+  say:'We schrijven elke uitdaging op als “Hoe kunnen we…?”. Daarmee ga je uit van het positieve.',
+  doe:['Lees elke rode post-it hardop voor.','Staat HKW (Hoe kunnen we…?) bovenaan en daarna de vraag? Dan blijft hij hangen.','Staat er nog een klacht of een probleem op? Schrijf hem samen om naar een positieve vraag.','Schrijf “Hoe kunnen we” niet uit, anders is het te veel tekst. HKW bovenaan volstaat, of je laat het helemaal weg.','Ga op vel 1 naar de derde pijl, “uitdagingen”, en plak de post-its.','Maak een foto van 7.3.'],
+  watch:['Een uitdaging haalt je uit je comfortzone. Formuleer hem niet te groot.','De klacht gaat weg, de vraag blijft hangen.'],
+  sheet(){ return vel1(3); },
+  extra(){ return `<div class="how"><span class="lbl">Zo herschrijf je een klacht</span>${rewrites.map(r=>`<div class="r"><span class="tagc chal"><s>${esc(r.t)}</s></span><span>→</span><span class="tagc chal"><b>HKW</b> ${esc(r.n.replace(/^HKW /,''))}</span></div>`).join('')}</div>`; }},
+ {nav:'7.4', short:'Projecten', group:1, id:'7.4 · 10 min', title:'Plot de projecten op impact en effort',
+  doel:'Ideeën en uitdagingen vergelijkbaar maken. Anders vergelijk je appels met peren. Daarom werk je met projecten.',
+  say:'Welke eerste stap kun je zetten om dit idee of deze uitdaging aan te pakken? Die stap schrijf je op als project op blauw.',
+  doe:['Pak vel 2 met de impact/effort-matrix. Begin met de projectenstapel: de blauwe post-its die al geparkeerd hingen.','Laat de sprinter ze plotten op impact en effort. Impact definieer je op basis van wat eerder is besloten dat belangrijk is. Dat is soms de why, soms de BHAG, soms het kompas.','Ga daarna van rechts naar links langs de ideeën en uitdagingen op vel 1, van meest naar minder belangrijk.','Vraag bij elk: kunnen we hier iets mee doen? Is er een stap om dit idee of deze uitdaging aandacht te geven? Schrijf die stap op een blauwe post-it en plot hem erbij.','Een idee of uitdaging zonder zo’n stap hoeft niet mee. Hij blijft hangen op vel 1.','Als je een compleet overzicht van de projecten hebt, maak je een foto.'],
+  watch:['Doelen, zowel mijlpalen als doorlopende doelen, zet je niet om naar projecten.','Categoriseren of hernoemen doet de facilitator, niet per se met een extra post-it.','In werkelijkheid plot de sprinter echt: de post-its hangen wat rommelig door elkaar en mogen elkaar raken.','Quick wins direct doen. Big projects zijn kwartaal- of jaardoelen. Thankless tasks automatiseren of uitbesteden. No-go area uitbesteden of niet doen.'],
+  sheet(){ return `<div class="stitle">Vel 2 · projecten</div>${matrix(false)}`; },
+  extra(){ return `<div class="how"><span class="lbl">Van idee of uitdaging naar project</span>
+    <div class="r"><span class="tagc idea">Iets met AI doen</span><span>→</span><span class="tagc proj">Uitzoeken waar AI ons tijd bespaart</span></div>
+    <div class="r"><span class="tagc idea">Het team uitbreiden</span><span>→</span><span class="tagc proj">Doorrekenen of een vierde teamlid past</span></div>
+    <div class="r"><span class="tagc chal"><b>HKW</b> offertes binnen een dag versturen?</span><span>→</span><span class="tagc proj">Offertetemplate met vaste blokken</span></div>
+    <div class="r"><span class="tagc proj">Pitch finetunen</span><span>→</span><span>hing al blauw op de parking, gaat als eerste de matrix in</span></div>
+    <p class="mini" style="font-family:var(--body)">Een vaag idee wordt een project met een onderzoeks- of beslisstap. Pas daarna wordt het concreet.</p></div>`; }},
+ {nav:'7.5', short:'Top 10', group:1, id:'7.5 · 5 min', title:'Kies wat je als eerste oppakt',
+  doel:'Kiezen wat je als eerste oppakt, zodat je met een korte lijst verder kunt.',
+  say:'Als je maar één ding kon doen, welk project is dat? Wat moet je als eerste oppakken? En daarna?',
+  doe:['Schrijf de labels 1 tot en met 10 op de indexstickers van Post-it.','De sprinter begint met de nummer-één prioriteit: wat moet je als eerste gaan oppakken?','Zo ga je door tot maximaal 10. Het hoeven er niet echt 10 te zijn.','Maak direct na het maken van de top 10 een foto.'],
+  watch:['Vergeet de foto niet. Maak hem meteen, voordat je naar de roadmap gaat.','Projecten in de no-go area vallen meestal af.','Begin bij de quick wins, tenzij een groot project een mijlpaal dichterbij haalt.','Het verdelen van de projecten met kleine ronde stickers doe je nog niet. Dat komt pas bij de roadmap.'],
+  sheet(){ return `<div class="stitle">Vel 2 · prioriteiten</div>${matrix(true)}`; }},
+ {nav:'7.6', short:'Roadmap', group:1, id:'7.6 · 20 min', title:'Bouw de roadmap in drie lagen',
+  doel:'Alles op één blad: waar ga je naartoe, wanneer en met welke projecten.',
+  say:'Nu komt alles samen. We bouwen de roadmap op in drie lagen: eerst de BHAG, dan de mijlpalen, dan de projecten.',
+  doe:['Hang vel 3 liggend op: bovenaan “wanneer”, links “doelen” en “projecten”.','Zet kleine post-its in de bovenste rij, van links naar rechts: volgende maand, volgend kwartaal, nog een kwartaal, de twee kwartalen daarna, volgend jaar en over vijf jaar.','Laag 1: plak de BHAG helemaal rechts, bij over vijf jaar.','Laag 2: plak de mijlpalen onder het moment waarop ze behaald moeten zijn. Vraag bij elke mijlpaal live naar de deadline.','Laag 3: plak de projecten onder het moment waarop ze starten, niet waarop ze klaar moeten zijn. Neem het nummer uit de top 10 mee.','Verdeel de projecten daarna met kleine ronde stickers. Met meerdere sprinters krijgt iedereen een eigen kleur stickers en een eigen stickervelletje, waarmee ze claimen welke projecten van hen zijn.','Voeg interactief andere relevante inzichten toe en maak foto’s.'],
+  watch:['Doelen plot je waar ze behaald moeten zijn. Projecten plot je waar ze starten.','Mijlpalen gaan direct op de roadmap, zonder omweg via de matrix.','De doorlopende doelen blijven op het andere blad (vel 1) en komen terug in de rapportage. Ze hoeven niet op de roadmap.','De ronde stickers komen pas nu, op de roadmap, nog niet bij de top 10.'],
+  sheet(){ return `<div class="layers" role="group" aria-label="Laag">
+      ${['Laag 1: BHAG','Laag 2: mijlpalen','Laag 3: projecten'].map((l,i)=>`<button data-layer="${i+1}" aria-pressed="${layer===i+1}">${l}</button>`).join('')}
+      <span style="width:18px"></span>
+      <button data-multi="0" aria-pressed="${!multi}">Eén sprinter</button><button data-multi="1" aria-pressed="${multi}">Meerdere sprinters</button></div>${roadmap()}`; }}
+];
+
+let cur = 0;
+const stepsEl = document.getElementById('steps'), stage = document.getElementById('stage');
+const prev = document.getElementById('prev'), next = document.getElementById('next');
+const list = a => `<ol>${a.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`;
+const groupNames = ['Voorbereiding','De roadmap'];
+function draw(){
+  const s = steps[cur];
+  stepsEl.innerHTML = groupNames.map((g,gi)=>`<div class="grp"><span class="cap">${g}</span><div class="tabs">${
+    steps.map((st,i)=>st.group===gi?`<button class="tab" data-i="${i}" ${i===cur?'aria-current="step"':''}><b>${st.nav}</b><span>${st.short}</span></button>`:'').join('')}</div></div>`).join('');
+  stage.innerHTML = `<div class="ins"><div><span class="meta">${s.id}</span><h2>${esc(s.title)}</h2></div>
+    <div class="blk"><span class="lbl">Doel</span><p class="goaltext">${esc(s.doel)}</p></div>
+    <div class="blk say"><span class="lbl">${s.sayLabel||'Zeg'}</span><p>“${esc(s.say)}”</p></div>
+    <div class="blk"><span class="lbl">Zo doe je het</span>${list(s.doe)}</div>
+    <div class="blk"><span class="lbl">Let op</span><ul>${s.watch.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>
+    <div class="side">${s.pre?s.pre():''}<div class="sheetwrap"><div class="sheet">${s.sheet()}</div></div>${s.extra?s.extra():''}</div>`;
+  prev.disabled = cur===0; next.disabled = cur===steps.length-1;
+}
+const go = n => { cur = n; if(steps[cur].short==='Roadmap'){ layer = 3; multi = false; } draw(); };
+stepsEl.addEventListener('click', e=>{const b=e.target.closest('button[data-i]'); if(b) go(+b.dataset.i);});
+stage.addEventListener('click', e=>{const b=e.target.closest('button[data-layer]'); if(b){layer=+b.dataset.layer; if(multi&&layer<3) multi=false; draw();}});
+stage.addEventListener('click', e=>{const b=e.target.closest('button[data-multi]'); if(b){multi=b.dataset.multi==='1'; if(multi) layer=3; draw();}});
+stage.addEventListener('click', e=>{const b=e.target.closest('button[data-ex]'); if(b){exIdx=+b.dataset.ex; document.getElementById('tree').outerHTML=decisionTree(); const nb=stage.querySelector('[data-ex="'+exIdx+'"]'); if(nb) nb.focus();}});
+prev.onclick = ()=>{ if(cur>0) go(cur-1); };
+next.onclick = ()=>{ if(cur<steps.length-1) go(cur+1); };
+draw();
+
+</script>
+
+</body>
+</html>
